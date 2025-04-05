@@ -1,47 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIS Tax</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #83a4d4, #b6fbff);
-      color: #333;
+      background: #f4f4f4;
       margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 2rem;
     }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2em;
-      max-width: 500px;
-      text-align: center;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
     .card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      text-align: center;
+      padding: 1.5rem;
+      border-radius: 15px;
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
     }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    /* Different background colors for cards */
+    .card-1 { background-color: #e57373; }
+    .card-2 { background-color: #ba68c8; }
+    .card-3 { background-color: #64b5f6; }
+    .card-4 { background-color: #4db6ac; }
+    .card-5 { background-color: #81c784; }
+    .card-6 { background-color: #dce775; color: #333; }
+    .card-7 { background-color: #ffd54f; color: #333; }
+    .card-8 { background-color: #ffb74d; }
+    .card-9 { background-color: #a1887f; }
+    .card-10 { background-color: #90a4ae; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🎉 Welcome!</h1>
-    <p>This is a beautifully styled page you landed on from a QR code.</p>
-     <p>Hi Testing </p>
+
+  <h1>Colorful Cards</h1>
+  <div class="grid">
+    <div class="card card-1">
+      <h2>Card 1</h2>
+      <p>This is a short description for card one.</p>
+    </div>
+    <div class="card card-2">
+      <h2>Card 2</h2>
+      <p>This is a short description for card two.</p>
+    </div>
+    <div class="card card-3">
+      <h2>Card 3</h2>
+      <p>This is a short description for card three.</p>
+    </div>
+    <div class="card card-4">
+      <h2>Card 4</h2>
+      <p>This is a short description for card four.</p>
+    </div>
+    <div class="card card-5">
+      <h2>Card 5</h2>
+      <p>This is a short description for card five.</p>
+    </div>
+    <div class="card card-6">
+      <h2>Card 6</h2>
+      <p>This is a short description for card six.</p>
+    </div>
+    <div class="card card-7">
+      <h2>Card 7</h2>
+      <p>This is a short description for card seven.</p>
+    </div>
+    <div class="card card-8">
+      <h2>Card 8</h2>
+      <p>This is a short description for card eight.</p>
+    </div>
+    <div class="card card-9">
+      <h2>Card 9</h2>
+      <p>This is a short description for card nine.</p>
+    </div>
+    <div class="card card-10">
+      <h2>Card 10</h2>
+      <p>This is a short description for card ten.</p>
+    </div>
   </div>
+
 </body>
 </html>
