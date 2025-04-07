@@ -1,3 +1,4 @@
+<!-- version 1 -->
 <!--DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,6 +97,7 @@
 </body>
 </html>
 -->
+<!-- version 2 -->
 <!--
 <!DOCTYPE html>
 <html lang="en">
@@ -218,7 +220,8 @@
 </body>
 </html>
 -->
-
+<!-- version 3 -->
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -368,4 +371,181 @@
   </script>
 
 </body>
+</html> -->
+<!-- version 4 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIS Financial Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f6f6f6;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      box-sizing: border-box;
+    }
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #34495e;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #888;
+    }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      section {
+        padding: 10px;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      input, select, textarea, button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SIS Financial Services</h1>
+    <p>Helping individuals and businesses with reliable financial solutions.</p>
+  </header>
+
+  <section>
+    <h2>Book an Appointment</h2>
+    <form id="bookingForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required pattern="^[0-9]{10}$" placeholder="Enter 10 digit phone number" />
+
+      <label for="service">Select Service</label>
+      <select id="service" name="service" required>
+        <option value="">-- Select a service --</option>
+        <option value="Personal Tax Return">Personal Tax Return</option>
+        <option value="Business Tax Return">Business Tax Return</option>
+        <option value="Title Change">Title Change</option>
+        <option value="Consulting">Consulting</option>
+      </select>
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="message">Additional Details</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">Book Now</button>
+    </form>
+    <p id="confirmation" style="color: green;"></p>
+  </section>
+
+  <footer>
+    &copy; 2025 SIS Financial Services. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS
+    emailjs.init("YOUR_USER_ID");  // Replace with your EmailJS User ID
+
+    // Set today's date as the minimum date for the date picker
+    window.onload = function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById("date").setAttribute("min", today);
+    };
+
+    // Handle the form submission
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();  // Prevent the default form submission
+
+      // Collect form data
+      const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        service: document.getElementById("service").value,
+        date: document.getElementById("date").value,
+        message: document.getElementById("message").value
+      };
+
+      // Send the form data using EmailJS
+      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+        .then(function(response) {
+          console.log("Success:", response);
+          document.getElementById("confirmation").textContent = "Thank you! Your appointment has been submitted.";
+        })
+        .catch(function(error) {
+          console.log("Error:", error);
+          document.getElementById("confirmation").textContent = "Sorry, something went wrong. Please try again.";
+        });
+
+      // Reset the form
+      this.reset();
+    });
+  </script>
+
+</body>
 </html>
+
