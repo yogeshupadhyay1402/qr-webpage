@@ -516,9 +516,20 @@
       document.getElementById("date").setAttribute("min", today);
     };
 
-    // Handle the form submission
+    // Validate the selected date before submitting the form
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
       e.preventDefault();  // Prevent the default form submission
+
+      // Get the selected date from the form
+      const selectedDate = document.getElementById("date").value;
+      const today = new Date().toISOString().split('T')[0];
+
+      // Check if the selected date is older than today's date
+      if (selectedDate < today) {
+        alert("You cannot select a past date. Please choose a future date.");
+        document.getElementById("date").value = "";  // Reset the date field
+        return;  // Prevent form submission
+      }
 
       // Collect form data
       const formData = {
@@ -548,4 +559,3 @@
 
 </body>
 </html>
-
